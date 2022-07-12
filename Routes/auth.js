@@ -12,9 +12,7 @@ router.post(
   "/createuser",
   [
     body("email", "Enter A Valid Email").isEmail(),
-    body("password", "Password must be atleast 8 characters").isLength({
-      min: 8,
-    }),
+    body("password", "Password must be atleast 8 characters").isLength({ min: 8 }),
     body("name", "Enter A Valid Name").isLength({ min: 3 }),
   ],
   async (req, res) => {
@@ -54,7 +52,7 @@ router.post(
     //catch errors
   }
 );
-//ROUTE 3: Authenticate a User using  : POST "/api/auth/login" no login requried
+//ROUTE 2: Authenticate a User using  : POST "/api/auth/login" no login requried
 router.post(
   "/login",
   [
@@ -94,7 +92,7 @@ router.post(
     }
   }
 );
-//ROUTE 4: Get logged in user details  : POST "/api/auth/getuser" Login requried
+//ROUTE 3: Get logged in user details  : POST "/api/auth/getuser" Login requried
 
 router.post("/getuser", fetchuser, async (req, res) => {
   try {
