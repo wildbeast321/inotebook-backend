@@ -69,8 +69,8 @@ router.put("/updatenotes/:id", fetchuser, async (req, res) => {
     if (note.user.toString() !== req.user.id) {
       return res.status(401).send("Not Allowed");
     }
-    note = await Note.findOneAndUpdate(
-      req.param.id,
+    note = await Note.findByIdAndUpdate(
+      req.params.id,
       { $set: newnote },
       { new: true }
     );
